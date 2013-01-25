@@ -11,12 +11,6 @@ var SearchView = function(store) {
         return this;
     };
 
-    /*this.findByName = function() {
-        store.findByName($('.search-key').val(), function(employees) {
-            $('.employee-list').html(HomeView.liTemplate(employees));
-        });
-    };*/
-
     this.findByName = function() {
         store.findByName($('.search-key').val(), function(items) {
             $('.item-list').html(SearchView.liTemplate(items));
@@ -27,6 +21,5 @@ var SearchView = function(store) {
 
 }
 
-SearchView.template = Handlebars.compile($("#home-tpl").html());
-//HomeView.liTemplate = Handlebars.compile($("#employee-li-tpl").html());
+SearchView.template = Handlebars.compile($("#search-tpl").html());
 SearchView.liTemplate = Handlebars.compile($("#item-li-tpl").html());

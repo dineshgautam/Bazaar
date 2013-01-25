@@ -25,16 +25,17 @@ var app = {
             if (this.homePage) {
                 this.slidePage(this.homePage);
             } else {
-                //this.homePage = new HomeView(this.store).render();
-                this.homePage = new SearchView(this.store).render();
+                this.homePage = new HomeView(this.store).render();
+                //this.homePage = new SearchView(this.store).render();
                 this.slidePage(this.homePage);
             }
             return;
         }
+        if (hash.match(this.searchURL)) {
+            self.slidePage(new SearchView(this.store).render());
+        }
         var match = hash.match(this.detailsURL);
         if (match) {
-            //this.store.findById(Number(match[1]), function(employee) {
-                //self.slidePage(new EmployeeView(employee).render());
             this.store.findById(Number(match[1]), function(item) {
                 self.slidePage(new ItemView(item).render());
             });
@@ -82,8 +83,8 @@ var app = {
 
     initialize: function() {
         var self = this;
-        //this.detailsURL = /^#employees\/(\d{1,})/;
         this.detailsURL = /^#items\/(\d{1,})/;
+        this.searchURL = /^#search/;
         this.registerEvents();
         this.store = new MemoryStore(function() {
             self.route();

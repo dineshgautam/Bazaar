@@ -6,21 +6,28 @@
 <body>
 
 <script id="home-tpl" type="text/x-handlebars-template">
-    <div class='header'><h1>Bazaar</h1></div>
+    <div class='header'><h1>Bazaar</h1><a href='#search' class="button header-button header-button-right">Search</a></div>
+	<div class="scroll"><ul class='selected-item-list'></ul></div>
+</script>
+
+<script id="selected-item-li-tpl" type="text/x-handlebars-template">
+    {{#.}}
+    <li><a href="#items/{{this.id}}">{{this.itemName}}</a></li>
+    {{/.}}
+</script>
+
+<script id="search-tpl" type="text/x-handlebars-template">
+    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Search item</h1></div>
     <div class='search-bar'><input class='search-key' type="search"/></div>
-    <!--<div class="scroll"><ul class='employee-list'></ul></div>-->
     <div class="scroll"><ul class='item-list'></ul></div>
 </script>
 
-<!--<script id="employee-li-tpl" type="text/x-handlebars-template">-->
 <script id="item-li-tpl" type="text/x-handlebars-template">
     {{#.}}
-    <!--<li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>-->
     <li><a href="#items/{{this.id}}">{{this.itemName}}<br/>{{this.itemType}}</a></li>
     {{/.}}
 </script>
 
-<!--<script id="employee-tpl" type="text/x-handlebars-template">-->
 <script id="item-tpl" type="text/x-handlebars-template">
     <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
     <div class='details'>
@@ -48,7 +55,7 @@
 <script src="lib/jquery-1.8.2.min.js"></script>
 <script src="lib/handlebars.js"></script>
 <script src="js/storage/memory-store.js"></script>
-<!--script src="js/HomeView.js"></script-->
+<script src="js/HomeView.js"></script>
 <script src="js/SearchView.js"></script>
 <!--<script src="js/EmployeeView.js"></script>-->
 <script src="js/ItemView.js"></script>
