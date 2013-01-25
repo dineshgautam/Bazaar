@@ -11,9 +11,15 @@ var HomeView = function(store) {
         return this;
     };
 
-    this.findByName = function() {
+    /*this.findByName = function() {
         store.findByName($('.search-key').val(), function(employees) {
             $('.employee-list').html(HomeView.liTemplate(employees));
+        });
+    };*/
+
+    this.findByName = function() {
+        store.findByName($('.search-key').val(), function(items) {
+            $('.item-list').html(HomeView.liTemplate(items));
         });
     };
 
@@ -22,4 +28,5 @@ var HomeView = function(store) {
 }
 
 HomeView.template = Handlebars.compile($("#home-tpl").html());
-HomeView.liTemplate = Handlebars.compile($("#employee-li-tpl").html());
+//HomeView.liTemplate = Handlebars.compile($("#employee-li-tpl").html());
+HomeView.liTemplate = Handlebars.compile($("#item-li-tpl").html());
