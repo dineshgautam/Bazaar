@@ -7,15 +7,10 @@ var HomeView = function(store) {
     };
 
     this.render = function() {
-        this.el.html(HomeView.template());
+        //this.el.html(HomeView.template());
+        this.el.html(HomeView.liTemplate(this.store.selectedItems));
         return this;
     };
-
-    /*this.findByName = function() {
-        store.findByName($('.search-key').val(), function(employees) {
-            $('.employee-list').html(HomeView.liTemplate(employees));
-        });
-    };*/
 
     this.findByName = function() {
         store.findByName($('.search-key').val(), function(items) {

@@ -26,7 +26,6 @@ var app = {
                 this.slidePage(this.homePage);
             } else {
                 this.homePage = new HomeView(this.store).render();
-                //this.homePage = new SearchView(this.store).render();
                 this.slidePage(this.homePage);
             }
             return;
@@ -38,6 +37,12 @@ var app = {
         if (match) {
             this.store.findById(Number(match[1]), function(item) {
                 self.slidePage(new ItemView(item).render());
+            });
+        }
+        var addMatch = hash.match(this.addItemURL);
+        if (addMatch) {
+            this.store.addSelectedItem(Number(addMatch[1]), function(item) {
+                self.slidePage(new HomeView(this.store).render());
             });
         }
     },
@@ -85,6 +90,7 @@ var app = {
         var self = this;
         this.detailsURL = /^#items\/(\d{1,})/;
         this.searchURL = /^#search/;
+        this.addItemURL = /^#addItem\/(\d{1,})/;
         this.registerEvents();
         this.store = new MemoryStore(function() {
             self.route();

@@ -4,6 +4,7 @@ var SearchView = function(store) {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.on('keyup', '.search-key', this.findByName);
+        //this.el.on('click', '.add-item-btn', this.addSelectedItem);
     };
 
     this.render = function() {
@@ -17,6 +18,14 @@ var SearchView = function(store) {
         });
     };
 
+    /*this.addSelectedItem = function(event) {
+        console.log('addItemToList');
+        //app.showAlert("addItemToList", "Info");
+        store.addSelectedItem($('.search-key').val(), function(items) {
+            $('.selected-item-list').html(HomeView.liTemplate(items));
+        });  
+    };*/
+    
     this.initialize();
 
 }
