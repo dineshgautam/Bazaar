@@ -18,14 +18,6 @@ var SearchView = function(store) {
         });
     };
 
-    /*this.addSelectedItem = function(event) {
-        console.log('addItemToList');
-        //app.showAlert("addItemToList", "Info");
-        store.addSelectedItem($('.search-key').val(), function(items) {
-            $('.selected-item-list').html(HomeView.liTemplate(items));
-        });  
-    };*/
-    
     this.initialize();
 
 }

@@ -21,10 +21,12 @@
     {{#.}}
     <li><a href="#items/{{this.id}}">{{this.itemName}}</a></li>
     {{/.}}
+    <footer data-role="footer" data-position="fixed" class='header'>
+    </footer>
 </script>
 
 <script id="search-tpl" type="text/x-handlebars-template">
-    <div class='header'><h1>Search item</h1></div>
+    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Search item</h1></div>
     <div class='search-bar'><input class='search-key' type="search"/></div>
     <div class="scroll"><ul class='item-list'></ul></div>
 </script>
@@ -56,6 +58,8 @@
     <!--<li><a href="#" class="add-contact-btn">Add to Contacts</a></li>-->
     <li><a href="#" class="change-pic-btn">Change Picture</a></li>
     </ul>
+    <footer data-role="footer" data-position="fixed" class='header'>
+    </footer>
     </div>
 </script>
 
