@@ -25,8 +25,11 @@ var app = {
             if (this.homePage) {
                 this.slidePage(this.homePage);
             } else {
-                this.homePage = new HomeView(this.store).render();
-                this.slidePage(this.homePage);
+                //this.homePage = new HomeView(this.store).render();
+                //this.slidePage(this.homePage);
+                this.store.showSelectedItems(function(items) {
+                	self.slidePage(new HomeView(items).render());
+                });
             }
             return;
         }
@@ -39,10 +42,10 @@ var app = {
                 self.slidePage(new ItemView(item).render());
             });
         }
-        var addMatch = hash.match(this.addItemURL);
-        if (addMatch) {
-            this.store.addSelectedItem(Number(addMatch[1]), function(item) {
-                self.slidePage(new HomeView(this.store).render());
+        var matchAddItem = hash.match(this.addItemURL);
+        if (matchAddItem) {
+            this.store.addSelectedItem(Number(matchAddItem[1]), function(items) {
+                self.slidePage(new HomeView(items).render());
             });
         }
     },

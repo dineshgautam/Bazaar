@@ -20,7 +20,7 @@ var MemoryStore = function(successCallback, errorCallback) {
         }
         callLater(callback, item);
     }
-    
+
    this.addSelectedItem = function(id, callback) {
         var items = this.items;
         var selectedItems = this.selectedItems;
@@ -36,6 +36,11 @@ var MemoryStore = function(successCallback, errorCallback) {
         callLater(callback, selectedItems);
     }
 
+   this.showSelectedItems = function(callback) {
+        var selectedItems = this.selectedItems;
+        callLater(callback, selectedItems);
+    }
+
     // Used to simulate async calls. This is done to provide a consistent interface with stores (like WebSqlStore)
     // that use async data access APIs
     var callLater = function(callback, data) {
@@ -46,10 +51,8 @@ var MemoryStore = function(successCallback, errorCallback) {
         }
     }
 
-    this.selectedItems = [
-    		{"id":1,"itemName":"Antiperspirant / Deodorant","itemType":"Personal care","department":"Household"}
-		];
-		
+    this.selectedItems = [];
+
     this.items = [
     		{"id":1,"itemName":"Antiperspirant / Deodorant","itemType":"Personal care","department":"Household"},
 			{"id":2,"itemName":"Bath soap / Hand soap","itemType":"Personal care","department":"Household"},
